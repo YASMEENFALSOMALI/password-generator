@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Password Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Random Password Generator</h1>
+            <p class="subtitle">Generate secure passwords with customizable options</p>
+        </div>
+
+        <div class="generator-card">
+            <div class="form-group">
+                <label for="passwordLength">Password Length:</label>
+                <div class="input-wrapper">
+                    <input type="number" id="passwordLength" min="6" max="64" value="12">
+                    <span class="hint">(6-64 Chars)</span>
+                </div>
+            </div>
+
+            <div class="options-group">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="smallLetters" checked>
+                    <label for="smallLetters">Include Small Letter <span class="example">(e.g: abcd)</span></label>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="capitalLetters" checked>
+                    <label for="capitalLetters">Include Capital Letter <span class="example">(e.g: ABCD)</span></label>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="numbers" checked>
+                    <label for="numbers">Include Numbers <span class="example">(e.g: 01239)</span></label>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="punctuation" checked>
+                    <label for="punctuation">Include Punctuation <span class="example">(e.g: !@#$%^)</span></label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="quantity">Quantity:</label>
+                <div class="input-wrapper">
+                    <input type="number" id="quantity" min="1" max="100" value="1">
+                    <span class="hint">(1-100 Passwords)</span>
+                </div>
+            </div>
+
+            <button id="generateBtn" class="generate-btn">Create Password(s)</button>
+
+            <div id="passwordResults" class="password-results"></div>
+        </div>
+
+        <div class="strength-card">
+            <h2 class="strength-title">Password Strength Evaluator</h2>
+            <p class="strength-subtitle">Check the strength of your generated password</p>
+            
+            <div class="form-group">
+                <label for="passwordInput">Enter Password to Check:</label>
+                <div class="password-input-wrapper">
+                    <input type="text" id="passwordInput" placeholder="Paste or type your password here...">
+                    <button id="checkBtn" class="check-btn">Check Strength</button>
+                </div>
+            </div>
+
+            <div id="strengthResult" class="strength-result">
+                <div class="strength-bar-container">
+                    <div id="strengthBar" class="strength-bar"></div>
+                </div>
+                <div id="strengthText" class="strength-text">Enter a password to check its strength</div>
+                <div id="strengthDetails" class="strength-details"></div>
+                <div id="timeToCrack" class="time-to-crack"></div>
+                <div id="timeExplanation" class="time-explanation"></div>
+                <div id="estimationInfo" class="estimation-info">
+                    <h3>About This Estimate:</h3>
+                    <p><strong>Calculation Method:</strong> Brute force attack simulation</p>
+                    <p><strong>Assumption:</strong> 1 billion password attempts per second (modern GPU capability)</p>
+                    <p><strong>Why this estimate?</strong> This uses a conservative estimate based on modern high-end GPU capabilities. The calculation uses the formula: (character set size)<sup>password length</sup> ÷ guesses per second. Real-world cracking times may vary based on hashing algorithms, hardware used, and attack methods.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>YASMEEN FAWZI ALSOMALI</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
